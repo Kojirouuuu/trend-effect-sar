@@ -22,7 +22,7 @@ public class BA {
         int[] deg = new int[N];
         int[] edgeList = new int[(int)(m0 * (m0 - 1) + 2 * m * (N - m0))];
 
-        //　初期完全グラフのエッジを設定
+        // 初期完全グラフのエッジを設定
         int numEdges = 0;
         for (int i = 0; i < m0; i++) {
             for (int j = i + 1; j < m0; j++) {
