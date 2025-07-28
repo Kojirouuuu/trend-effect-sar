@@ -24,10 +24,11 @@ public class Graph {
             int minDegree = Integer.MAX_VALUE;
             
             for (int i = 0; i < N; i++) {
-                for (int j = 0; j < cursorList[i] - addressList[i]; j++)
+                degreeI = 0; // Reset degreeI for the current node
+                for (int j = 0; j < cursorList[i] - addressList[i]; j++) {
                     totalEdges += 1;
                     degreeI += 1;
-
+                }
                 maxDegree = Math.max(maxDegree, degreeI);
                 minDegree = Math.min(minDegree, degreeI);
             }
