@@ -261,9 +261,9 @@ public class SARSimulator {
      */
     private void recordState(double time) {
         times.add(time);
-        susceptibleCounts.add(network.N - infectedNodes.size());
+        susceptibleCounts.add(network.N - infectedNodes.size() - recoveredNodes.size());
         infectedCounts.add(infectedNodes.size());
-        recoveredCounts.add(0); // SARモデルでは回復ノードは追跡しない
+        recoveredCounts.add(recoveredNodes.size()); // Track recovered nodes
     }
     
     /**
