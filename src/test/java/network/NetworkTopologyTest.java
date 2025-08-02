@@ -1,4 +1,4 @@
-package main.java.network;
+package network;
 
 import main.java.network.Graph;
 import main.java.network.topology.*;
@@ -10,7 +10,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class test {
+public class NetworkTopologyTest {
     
     @DisplayName("ランダムレギュラーグラフ（RR）の生成テスト")
     @ParameterizedTest(name = "ノード数={0}, 次数={1}")
@@ -173,4 +173,4 @@ public class test {
         assertEquals(20, erGraph.N);
         assertEquals(20, baGraph.N);
     }
-}
+} 

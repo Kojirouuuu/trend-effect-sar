@@ -13,6 +13,7 @@ public class SARSimulator {
     private double recoveryRate;      // γ (回復率)
     private Set<Integer> infectedNodes;
     private Set<Integer> atRiskNodes;
+    private Set<Integer> recoveredNodes;
     private Map<Integer, Double> infectionRates;
     private double totalInfectionRate;
     private double totalRecoveryRate;
@@ -30,6 +31,7 @@ public class SARSimulator {
         this.recoveryRate = recoveryRate;
         this.infectedNodes = new HashSet<>();
         this.atRiskNodes = new HashSet<>();
+        this.recoveredNodes = new HashSet<>();
         this.infectionRates = new HashMap<>();
         this.times = new ArrayList<>();
         this.susceptibleCounts = new ArrayList<>();
@@ -86,6 +88,7 @@ public class SARSimulator {
     private void initializeSimulation(Set<Integer> initialInfections) {
         infectedNodes.clear();
         atRiskNodes.clear();
+        recoveredNodes.clear();
         infectionRates.clear();
         
         // 初期感染ノードを設定
@@ -167,8 +170,9 @@ public class SARSimulator {
         List<Integer> infectedList = new ArrayList<>(infectedNodes);
         int recoveredNode = infectedList.get(random.nextInt(infectedList.size()));
         
-        // 感染ノードから削除
+        // 感染ノードから削除し、回復ノードに追加
         infectedNodes.remove(recoveredNode);
+        recoveredNodes.add(recoveredNode);
         
         // 隣接ノードの感染率を更新
         updateNeighborInfectionRates(recoveredNode);
